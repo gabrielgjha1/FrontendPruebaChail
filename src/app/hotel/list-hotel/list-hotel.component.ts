@@ -22,7 +22,7 @@ export class ListHotelComponent implements OnInit {
 
     this._hotelservice.GetHotel().subscribe((resp:Hotel[])=>{
 
-      console.log(resp);
+
       this.hotel=resp;
     })
 
@@ -43,7 +43,7 @@ export class ListHotelComponent implements OnInit {
 
         this._hotelservice.BorrarHotel(id).subscribe(resp=>{
 
-          console.log(resp);
+
 
           if (resp){
 

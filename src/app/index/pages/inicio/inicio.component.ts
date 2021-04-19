@@ -83,7 +83,7 @@ export class InicioComponent implements OnInit {
   // lista los hoteles por precio
   TraerPorPrecio(event:any){
 
-    console.log(event.value.code);
+
     this._hotelService.BuscarPorPrecio(event.value.code).subscribe(resp=>{
 
       this.hotels=resp;
@@ -96,7 +96,7 @@ export class InicioComponent implements OnInit {
   //trae por categoria
   TraerCategoria(event:any){
 
-    // console.log(this.categoria.code);
+
     this._hotelService.BuscarCategoriaPuntuacion(this.categoria.code,this.puntuacion.code).subscribe(resp=>{
 
       this.hotels = resp;

@@ -44,7 +44,6 @@ export class VerHotelesComponent implements OnInit {
   comprobarVoto(){
 
     if (localStorage.getItem(this.hotel._id)){
-      console.log('object');
       this.desactivarBoton=true;
 
     }
@@ -68,7 +67,6 @@ export class VerHotelesComponent implements OnInit {
 
         //almacena las imagenes que vienen del backen en this.imagen para mostrar en la galeria
         this.images=[resp.pictureOne,resp.pictureThree,resp.pictureTwo]
-        console.log(this.images);
 
 
         //llama la funcion comprobar voto para ocultar el boton de enviar
