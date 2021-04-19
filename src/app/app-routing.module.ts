@@ -13,7 +13,7 @@ const routes: Routes = [
 
   {
 
-    path:'hotel',
+    path:'crudhotel',
     loadChildren:()=>import('./hotel/hotel.module').then(m=>m.HotelModule)
 
   },

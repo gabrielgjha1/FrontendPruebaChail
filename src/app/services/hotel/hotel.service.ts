@@ -17,6 +17,8 @@ export class HotelService {
   constructor(private http:HttpClient){ }
 
 
+  //INICIO DE BUSQUEDAS
+
   //trae todos los hoteles
   GetHotel(){
 
@@ -100,7 +102,58 @@ export class HotelService {
 
   }
 
+  //FIN DE BUSQUEDAS
 
 
+  // Inicio del CRUD
+
+
+  GuardarHotel(hotel:Hotel){
+
+
+    const url = `${this.api}/hotel`;
+
+    return this.http.post<any>(url,hotel).pipe(
+
+
+      map(resp=>resp.hotel)
+
+      )
+
+
+
+    }
+
+    //guarda las imagen despues de guardar el hotel
+    GuardarImagen(id:string,data:FormData){
+      const url = `${this.api}/uploads/hotel/${id}`;
+
+      return this.http.put(url,data);
+
+
+  }
+
+
+  BorrarHotel(id:string){
+
+    const url = `${this.api}/hotel/${id}`;
+
+    return this.http.delete<Boolean>(url).pipe(
+
+
+      map(resp=>true),
+      catchError(err=>of(false))
+
+
+    )
+
+
+  }
+
+
+
+
+
+  //fin del crud
 
 }

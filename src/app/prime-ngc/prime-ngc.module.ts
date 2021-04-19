@@ -18,6 +18,7 @@ import {ProgressSpinnerModule} from 'primeng/progressspinner';
 import {TableModule} from 'primeng/table';
 import {GalleriaModule} from 'primeng/galleria';
 import {DividerModule} from 'primeng/divider';
+
 @NgModule({
   declarations: [],
   imports: [

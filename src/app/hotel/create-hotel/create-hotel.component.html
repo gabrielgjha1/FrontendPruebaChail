@@ -1,1 +1,88 @@
-<p>create-hotel works!</p>
+<div class="container shadow-dreamy">
+
+<h1 class="text-center mt-2 mb-2">{{'Crear un nuevo hotel'|titlecase}}</h1>
+<hr class="mt-2 mb-2">
+
+<div *ngIf="spinner">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div *ngIf="!spinner">
+  <form  (ngSubmit)="EnviarFormulario()" [formGroup]="formulario" >
+<div class="row p-2">
+
+
+  <div class="col-12 col-md-6">
+    <div class="col-12 mt-2 mb-2">
+      <p>Ingrese Imagen 1  <b>Formato: Imagen</b>  </p>
+      <p-fileUpload name="imagen1" accept="image/*"   customUpload="true" (onSelect)="imageOne($event)"></p-fileUpload>
+    </div>
+
+    <div class="col-12 mt-2 mb-2">
+      <p>Ingrese Imagen 2  <b>Formato: Imagen</b>  </p>
+      <p-fileUpload name="imagen2" accept="image/*"   customUpload="true" (onSelect)="imageTwo($event)"></p-fileUpload>
+    </div>
+
+    <div class="col-12 mt-2 mb-2">
+      <p>Ingrese Imagen 3  <b>Formato: Imagen</b>  </p>
+      <p-fileUpload name="imagen3" accept="image/*"   customUpload="true" (onSelect)="imageThree($event)"></p-fileUpload>
+    </div>
+
+  </div>
+
+  <div class="col-12 col-md-6">
+
+    <div class="row">
+
+      <div class="col-12 mt-2 mb-2">
+
+        <p>Nombre Del Hotel  <b>Campo obligatorio</b> </p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="text" name="hotelname" formControlName="hotelname"  style="width: 100%;" pInputText placeholder="Nombre del hotel" />
+        </span>
+
+        <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('hotelname')">
+          <span >El campo es requerido  </span>
+        </div>
+
+      </div>
+
+      <div class="col-12 mt-2 mb-2">
+
+        <p>{{'Precio del hotel'|titlecase}} <b>{{'Solo números mayores a 0' |titlecase}}</b></p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="number" name="price" formControlName="price"  style="width: 100%;" pInputText placeholder="Precio del hotel" />
+        </span>
+
+        <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('price')">
+          <span >El campo es requerido, y debe ser un número mayor a 0</span>
+        </div>
+
+      </div>
+
+      <div class="col-12 mt-2 mb-2">
+
+        <p>{{'Categoria Del Hotel'|titlecase}} <b>{{'Solo números entre 1 y 5'|titlecase}}</b>  </p>
+        <span  [style]="{'width': '100%'}" class="p-input-icon-left mt-3">
+            <i class="pi pi-search"></i>
+            <input type="number" name="category" formControlName="category"  style="width: 100%;" pInputText placeholder="categoria del hotel" />
+        </span>
+
+        <div  class="mt-1 mb-1 errormessage" *ngIf="ValidarCampo('category')">
+          <span >El campo es requerido, y debe ser un número entre 1 y 5</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  <button pButton pRipple type="submit" style="width: 100%;" label="Enviar" class="p-button-raised  mt-3"></button>
+</div>
+</form>
+
+</div>
+
+</div>

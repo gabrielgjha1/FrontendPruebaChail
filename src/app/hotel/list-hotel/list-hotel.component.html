@@ -1,1 +1,41 @@
-<p>list-hotel works!</p>
+<div class="container shadow-dreamy p-2 mt-3">
+
+  <div>
+
+    <h1 class="text-center"> {{'Lista de hoteles'|titlecase}} </h1>
+    <hr>
+
+
+    <div class="m-2">
+      <div class="table-responsive">
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th class="text-center"  scope="col">#</th>
+            <th class="text-center" scope="col">Nombre</th>
+            <th class="text-center" scope="col">{{'Precio por noche'|titlecase}}</th>
+            <th class="text-center" scope="col">Categoría</th>
+            <th class="text-center" scope="col">Puntuación</th>
+            <th class="text-center" scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of hotel;index as i;">
+            <th class="text-center"  scope="row">{{i+1}}</th>
+            <td class="text-center" >{{item.hotelname}}</td>
+            <td class="text-center" >{{item.price | currency}}</td>
+            <td class="text-center" > <p-rating [ngModel]="item.category" readonly="true" stars="5" [cancel]="false"></p-rating></td>
+            <td class="text-center" > <p-rating [ngModel]="item.porcentajeVotos" readonly="true" stars="5" [cancel]="false"></p-rating></td>
+            <td class="text-center" >  <button pButton pRipple (click)="eliminar(item._id)" type="button" style="width: 100%;" label="Eliminar" class="p-button-danger"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+
+  </div>
+
+
+</div>

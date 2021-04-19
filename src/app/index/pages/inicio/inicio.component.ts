@@ -86,7 +86,6 @@ export class InicioComponent implements OnInit {
     console.log(event.value.code);
     this._hotelService.BuscarPorPrecio(event.value.code).subscribe(resp=>{
 
-
       this.hotels=resp;
 
 

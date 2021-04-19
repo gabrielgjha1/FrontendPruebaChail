@@ -12,12 +12,11 @@ const routes: Routes = [
     {
 
       path:'',
-
       children:[
 
         {path:'',component:ListHotelComponent},
         {path:'createhotel',component:CreateHotelComponent},
-        {path:'**',redirectTo:'login'},
+        {path:'**',redirectTo:''},
 
       ]
 

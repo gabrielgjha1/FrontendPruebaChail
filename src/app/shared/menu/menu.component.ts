@@ -24,38 +24,18 @@ export class MenuComponent implements OnInit {
               {
                   label:'Registrar un hotel',
                   icon:'pi pi-fw pi-plus',
-                  routerLink:['/hotel/createhotel'],
+                  routerLink:['/crudhotel/createhotel'],
               },
               {
                   label:'Listar hoteles',
                   icon:'pi pi-fw pi-list',
-                  routerLink:['/hotel'],
+                  routerLink:['/crudhotel/hotel'],
               },
 
 
 
           ]
       },
-      {
-        label:'Cuenta',
-        icon:'pi pi-fw pi-user',
-
-        items:[
-
-            {
-              label:'Salir',
-              icon:'pi pi-fw pi-power-off',
-
-          }
-        ]
-    },
-    {
-      label:'Iniciar Sesion',
-      icon:'pi pi-fw pi-user',
-      routerLink:['/auth'],
-
-
-  },
   ];
 
   }

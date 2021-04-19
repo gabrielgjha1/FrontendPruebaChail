@@ -47,6 +47,8 @@
 
       <textarea pInputTextarea [(ngModel)]="comentario"></textarea>
 
+      <h3 class="mt-2 mb-2">Usuarios que han votado</h3>
+      <i class="pi pi-user p-mr-4 p-text-secondary mt-2" pBadge style="font-size: 2rem" [value]="hotel.countVotes" severity="danger"></i>
       <button pButton pRipple [disabled]="desactivarBoton" (click)="votar(hotel._id)" type="submit" style="width: 100%;" label="Enviar" class="p-button-raised  mt-3"></button>
 
 

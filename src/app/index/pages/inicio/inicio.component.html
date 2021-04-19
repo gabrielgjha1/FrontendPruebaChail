@@ -19,12 +19,12 @@
 
       <div class=" col-12 col-lg-3 mt-2 mb-2 ">
 
-        <p-dropdown [options]="Categoria" (onChange)="TraerCategoria($event)" [(ngModel)]="categoria" placeholder="Por Categoria" optionLabel="name" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="Categoria" (onChange)="TraerCategoria($event)" [(ngModel)]="categoria" placeholder="Por Categoría" optionLabel="name" [showClear]="true"></p-dropdown>
       </div>
 
       <div class=" col-12 col-lg-3 mt-2 mb-2 ">
 
-        <p-dropdown [options]="Puntuacion" [(ngModel)]="puntuacion" (onChange)="TraerCategoria($event)" placeholder="Por Opinion" optionLabel="name" [showClear]="true"></p-dropdown>
+        <p-dropdown [options]="Puntuacion" [(ngModel)]="puntuacion" (onChange)="TraerCategoria($event)" placeholder="Por Opinión" optionLabel="name" [showClear]="true"></p-dropdown>
       </div>
 
 
@@ -55,6 +55,10 @@
         </p>
         <p class="mt-2">
           <b>Puntuación de los usuarios<p class="mt-2"> <p-rating [ngModel]="item.porcentajeVotos" readonly="true" stars="5" [cancel]="false"></p-rating></p>
+          </b>
+        </p>
+        <p class="mt-2">
+          <b>Cantidad de usuarios que votarón <p class="mt-2"> <i class="pi pi-user p-mr-4 p-text-secondary mt-2" pBadge style="font-size: 2rem" [value]="item.countVotes" severity="danger"></i></p>
           </b>
         </p>
 
