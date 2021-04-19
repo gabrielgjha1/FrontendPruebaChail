@@ -1,0 +1,20 @@
+.picturedown{
+
+  width: 100%;
+  max-height:100px;
+  min-height:100px
+}
+
+.img{
+
+  width: 100%;
+  max-height:400px;
+  min-height:400px
+
+}
+
+.comentarios{
+
+  background:#f2f2f2
+
+}

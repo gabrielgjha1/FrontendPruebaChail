@@ -1,0 +1,73 @@
+
+
+  <h1 class="text-center mb-2">{{'Selecciona un hotel'|titlecase}}</h1>
+  <hr class="mb-2">
+
+  <div *ngIf="spinner">
+    <p-progressSpinner></p-progressSpinner>
+  </div>
+
+  <div class="" *ngIf="!spinner">
+
+    <div class="row justify-content-lg-between ">
+
+
+      <div class=" col-12 col-lg-3 mt-2 mb-2 ">
+
+        <p-dropdown [options]="Precio" (onChange)="TraerPorPrecio($event)" [(ngModel)]="precio" placeholder="Por Precio" optionLabel="name" [showClear]="true"></p-dropdown>
+      </div>
+
+      <div class=" col-12 col-lg-3 mt-2 mb-2 ">
+
+        <p-dropdown [options]="Categoria" (onChange)="TraerCategoria($event)" [(ngModel)]="categoria" placeholder="Por Categoria" optionLabel="name" [showClear]="true"></p-dropdown>
+      </div>
+
+      <div class=" col-12 col-lg-3 mt-2 mb-2 ">
+
+        <p-dropdown [options]="Puntuacion" [(ngModel)]="puntuacion" (onChange)="TraerCategoria($event)" placeholder="Por Opinion" optionLabel="name" [showClear]="true"></p-dropdown>
+      </div>
+
+
+
+    </div>
+
+    <div class="grid">
+
+      <div class="shadow-dreamy m-1" *ngFor="let item of hotels" >
+        <p-card
+        header="{{item.hotelname}}"
+        subheader="Precio la noche {{item.price |currency}}"
+
+      >
+        <ng-template  pTemplate="header">
+          <img class="imagen" styleClass="imagen" style="width: 100%"
+            alt="Card"
+            src="{{item.pictureOne}}"
+          />
+        </ng-template>
+        <p>
+          Establecimiento de hostelería que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y servicio de comedor.
+        </p>
+
+        <p class="mt-2">
+          <b>Categoría<p class="mt-2"> <p-rating [ngModel]="item.category" readonly="true" stars="5" [cancel]="false"></p-rating></p>
+          </b>
+        </p>
+        <p class="mt-2">
+          <b>Puntuación de los usuarios<p class="mt-2"> <p-rating [ngModel]="item.porcentajeVotos" readonly="true" stars="5" [cancel]="false"></p-rating></p>
+          </b>
+        </p>
+
+
+
+        <ng-template pTemplate="footer">
+          <button pButton (click)="verhotel(item._id)" pRipple type="submit" style="width: 100%;" label="Ver" class="p-button-raised  mt-3"></button>
+              </ng-template>
+      </p-card>
+
+      </div>
+
+
+    </div>
+  </div>
+

@@ -1,0 +1,94 @@
+
+
+<div *ngIf="spinner">
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<div  *ngIf="!spinner">
+
+
+  <h1 class="text-center"> Hotel: {{hotel.hotelname}} </h1>
+  <hr class="mt-2">
+
+  <div class="row mt-3">
+    <div class="col-12 col-md-4 col-lg-6 ">
+      <p-galleria [(value)]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '640px'}" [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item" class="img" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="p-grid p-nogutter p-justify-center">
+                <img class="picturedown" [src]="item" />
+            </div>
+        </ng-template>
+    </p-galleria>
+
+
+    </div>
+
+
+    <div class="col-12 col-md-8 col-lg-6 ">
+
+      <h3 class="mt-2">Descripción</h3>
+      <p class="mt-2">Establecimiento de hostelería que ocupa un edificio total o parcialmente con uso exclusivo de sus servicios (entradas, ascensores, escaleras, etc.) y que ofrece alojamiento y servicio de comedor.</p>
+      <h3 class="mt-2">Precio</h3>
+      <p class="mt-2">La noche esta en {{hotel.price |currency}} </p>
+
+      <h3 class="mt-2">Categoría</h3>
+      <p class="mt-2"> <p-rating [ngModel]="hotel.category" readonly="true" stars="5" [cancel]="false"></p-rating></p>
+
+      <h3 class="mt-2">Puntuación de los usuarios</h3>
+      <p class="mt-2"> <p-rating [ngModel]="hotel.porcentajeVotos" readonly="true" stars="5" [cancel]="false"></p-rating></p>
+
+      <h3 class="mt-2 mb-2">Si visitaste el hotel selecciona tu puntuación</h3>
+      <p-rating  [(ngModel)]="vote"></p-rating>
+
+      <h3 class="mt-2 mb-2">Deja tu comentario</h3>
+
+      <textarea pInputTextarea [(ngModel)]="comentario"></textarea>
+
+      <button pButton pRipple [disabled]="desactivarBoton" (click)="votar(hotel._id)" type="submit" style="width: 100%;" label="Enviar" class="p-button-raised  mt-3"></button>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+  <div class="row shadow-dreamy m-3  comentarios">
+    <div class="col-12 p-3">
+      <h1 class="text-center mt-3">Comentarios</h1>
+
+      <div class="card">
+        <div *ngFor="let item of hotel.comentarios">
+          <p-divider align="left">
+            <div class="p-d-inline-flex p-ai-center">
+                <i class="pi pi-user p-mr-2"></i>
+
+            </div>
+        </p-divider>
+
+
+          <p>{{item}}</p>
+
+          <p-divider></p-divider>
+
+        </div>
+
+
+
+
+    </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
