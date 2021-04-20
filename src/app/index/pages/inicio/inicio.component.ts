@@ -11,46 +11,46 @@ import { HotelService } from 'src/app/services/hotel/hotel.service';
 })
 export class InicioComponent implements OnInit {
 
-  public hotels:Hotel[]
-  public spinner:boolean=true;
+  public hotels: Hotel[]
+  public spinner: boolean = true;
 
-  public categoria:any="";
+  public categoria: any = "";
 
-  public Categoria:any=[
+  public Categoria: any = [
 
-    {name: '1 Estrella', code: '1'},
-    {name: '2 Estrella', code: '2'},
-    {name: '3 Estrella', code: '3'},
-    {name: '4 Estrella', code: '4'},
-    {name: '5 Estrella', code: '5'},
-
-  ]
-
-  public precio:any="";
-
-  public Precio:any=[
-
-    {name: 'De Mayor A Menor', code: '1'},
-    {name: 'De Menor A Mayor', code: '-1'},
+    { name: '1 Estrella', code: '1' },
+    { name: '2 Estrella', code: '2' },
+    { name: '3 Estrella', code: '3' },
+    { name: '4 Estrella', code: '4' },
+    { name: '5 Estrella', code: '5' },
 
   ]
 
-  public puntuacion:any="";
+  public precio: any = "";
 
-  public Puntuacion:any=[
+  public Precio: any = [
 
-    {name: '1 Estrella', code: '1'},
-    {name: '2 Estrella', code: '2'},
-    {name: '3 Estrella', code: '3'},
-    {name: '4 Estrella', code: '4'},
-    {name: '5 Estrella', code: '5'},
+    { name: 'De Menor A Mayor', code: '1' },
+    { name: 'De Mayor A Menor', code: '-1' },
+
+  ]
+
+  public puntuacion: any = "";
+
+  public Puntuacion: any = [
+
+    { name: '1 Estrella', code: '1' },
+    { name: '2 Estrella', code: '2' },
+    { name: '3 Estrella', code: '3' },
+    { name: '4 Estrella', code: '4' },
+    { name: '5 Estrella', code: '5' },
 
   ]
 
 
 
 
-  constructor(private _hotelService:HotelService, private router:Router) { }
+  constructor(private _hotelService: HotelService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -63,30 +63,30 @@ export class InicioComponent implements OnInit {
 
 
 
-  TraerHoteles(){
+  TraerHoteles() {
 
     //trae los hoteles de la peticion al servicio
-    this._hotelService.GetHotel().subscribe((resp:Hotel[])=>{this.hotels=resp; this.spinner=false });
+    this._hotelService.GetHotel().subscribe((resp: Hotel[]) => { this.hotels = resp; this.spinner = false });
 
 
   }
 
   //navega a la ruta para ver un hotel
-  verhotel(id:string){
+  verhotel(id: string) {
 
 
-    this.router.navigateByUrl('/hotel/'+id)
+    this.router.navigateByUrl('/hotel/' + id)
 
 
   }
 
   // lista los hoteles por precio
-  TraerPorPrecio(event:any){
+  TraerPorPrecio(event: any) {
 
 
-    this._hotelService.BuscarPorPrecio(event.value.code).subscribe(resp=>{
+    this._hotelService.BuscarPorPrecio(event.value.code).subscribe(resp => {
 
-      this.hotels=resp;
+      this.hotels = resp;
 
 
     })
@@ -94,10 +94,10 @@ export class InicioComponent implements OnInit {
   }
 
   //trae por categoria
-  TraerCategoria(event:any){
+  TraerCategoria(event: any) {
 
 
-    this._hotelService.BuscarCategoriaPuntuacion(this.categoria.code,this.puntuacion.code).subscribe(resp=>{
+    this._hotelService.BuscarCategoriaPuntuacion(this.categoria.code, this.puntuacion.code).subscribe(resp => {
 
       this.hotels = resp;
 

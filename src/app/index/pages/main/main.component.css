@@ -20,3 +20,31 @@
   padding:25px ;
 
 }
+
+
+@media screen and (max-width: 455px) {
+
+
+.fondo{
+
+
+  height: 100%;
+
+
+}
+
+
+}
+@media screen and (max-width: 341px) {
+
+
+.fondo{
+
+
+  height: 100% ;
+  width: 100%;
+
+}
+
+}
+
